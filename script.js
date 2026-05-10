@@ -211,6 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
             images[currentIndex].classList.remove('active');
             currentIndex = (currentIndex + 1) % images.length;
             images[currentIndex].classList.add('active');
-        }, 3000); // change image every 3 seconds
+        }, 5000); // change image every 5 seconds
     });
 });
