@@ -1104,10 +1104,54 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.reviews-scroller-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
+}
+
+.reviews-scroller-container::before,
+.reviews-scroller-container::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.reviews-scroller-container::before {
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, var(--bg-light), transparent);
+}
+
+.reviews-scroller-container::after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, var(--bg-light), transparent);
+}
+
+.reviews-track {
+    display: flex;
     gap: 30px;
+    width: max-content;
+    animation: scroll-left 40s linear infinite;
+}
+
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Total width of unique items (9 * (350px + 30px gap)) */
+        transform: translateX(calc(-380px * 9));
+    }
 }
 
 .review-card {
@@ -1117,11 +1161,14 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
     border: 1px solid #eee;
+    width: 350px;
+    flex-shrink: 0;
 }
 
 .review-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
 .review-header {
