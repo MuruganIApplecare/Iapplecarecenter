@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://icarecenter.in/sitemap.xml
