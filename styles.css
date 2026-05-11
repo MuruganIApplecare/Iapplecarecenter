@@ -216,14 +216,14 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.85rem;
 }
 
-.contact-link, .footer-contact-link {
+.contact-link, .footer-contact-link, .hero-contact-link, .location-contact-link {
     text-decoration: none;
     color: inherit;
     font-weight: inherit;
     transition: color 0.3s ease;
 }
 
-.contact-link:hover, .footer-contact-link:hover {
+.contact-link:hover, .footer-contact-link:hover, .hero-contact-link:hover, .location-contact-link:hover {
     color: var(--primary-color);
 }
 
