@@ -216,6 +216,17 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.85rem;
 }
 
+.contact-link, .footer-contact-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover, .footer-contact-link:hover {
+    color: var(--primary-color);
+}
+
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
