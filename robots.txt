@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://icarecenter.in/sitemap.xml
+Sitemap: https://iapplecarecenter.com/sitemap.xml
