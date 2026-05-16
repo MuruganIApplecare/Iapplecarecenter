@@ -431,6 +431,16 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     animation: zoomIn 20s ease-in-out infinite alternate;
 }
+ 
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4); /* Reduced overlay for better image visibility */
+    z-index: 1;
+}
 
 @keyframes zoomIn {
     0% {
