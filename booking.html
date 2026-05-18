@@ -8,29 +8,29 @@
     <!-- Primary SEO Meta Tags -->
     <title>Book Repair Appointment | iApple Care Center | Apple Device Repair & Service</title>
     <meta name="description"
-        content="Book a repair appointment with iAppleCareCenter in Bangalore. Share your name and phone number and our team will contact you to confirm your booking.">
+        content="Book a repair appointment with iApple Care Center in Bangalore. Share your name and phone number and our team will contact you to confirm your booking.">
     <meta name="keywords"
-        content="Book Apple repair, iPhone service booking, MacBook repair appointment, iAppleCareCenter Bangalore">
-    <meta name="author" content="iAppleCareCenter">
+        content="Book Apple repair, iPhone service booking, MacBook repair appointment, iApple Care Center Bangalore">
+    <meta name="author" content="iApple Care Center">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://icarecenter.in/booking.html">
+    <link rel="canonical" href="https://iapplecarecenter.com/booking.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://icarecenter.in/booking.html">
+    <meta property="og:url" content="https://iapplecarecenter.com/booking.html">
     <meta property="og:title" content="Book Repair Appointment | iApple Care Center | Apple Device Repair & Service">
     <meta property="og:description"
-        content="Quick booking page for iAppleCareCenter Bangalore. Enter your name and phone number and we will reach out to you.">
-    <meta property="og:image" content="https://icarecenter.in/images/og-image.jpg">
+        content="Quick booking page for iApple Care Center Bangalore. Enter your name and phone number and we will reach out to you.">
+    <meta property="og:image" content="https://iapplecarecenter.com/images/og-image.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://icarecenter.in/booking.html">
+    <meta property="twitter:url" content="https://iapplecarecenter.com/booking.html">
     <meta property="twitter:title" content="Book Repair Appointment | iApple Care Center | Apple Device Repair & Service">
     <meta property="twitter:description"
-        content="Book your Apple device repair at iAppleCareCenter in Bangalore in just one step.">
-    <meta property="twitter:image" content="https://icarecenter.in/images/og-image.jpg">
+        content="Book your Apple device repair at iApple Care Center in Bangalore in just one step.">
+    <meta property="twitter:image" content="https://iapplecarecenter.com/images/og-image.webp">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -93,7 +93,10 @@
 
     <!-- Hero Section (same style as main page, booking-focused text) -->
     <section id="home" class="hero">
-        <div class="hero-background"></div>
+        <div class="hero-background">
+            <img src="images/ipad/hero_endframe__sg50vzdd6sqm_large_2x.webp" alt="Apple Device Repair Background" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
         <div class="hero-slider">
             <div class="slide active">
                 <div class="container">
@@ -271,7 +274,29 @@
             this.reset();
         });
     </script>
-    <script src="script.js"></script>
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://iapplecarecenter.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Book Repair Appointment",
+                "item": "https://iapplecarecenter.com/booking.html"
+            }
+        ]
+    }
+    </script>
+
+    <script src="script.min.js" defer></script>
 </body>
 
 </html>
