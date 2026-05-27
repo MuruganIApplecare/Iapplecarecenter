@@ -92,7 +92,7 @@ def process_code_files(base_dir):
         print(f"Minified JS: {os.path.getsize(script_path)/1024:.1f}KB -> {os.path.getsize(script_min_path)/1024:.1f}KB")
 
     # Rewrite HTML files
-    html_files = ["index.html", "booking.html"]
+    html_files = ["index.html", "booking.html", "privacy-policy.html", "terms-of-service.html", "404.html"]
     image_extensions_pattern = re.compile(r'images/([^"\'\s>]+)\.(png|jpg|jpeg|jfif)', re.IGNORECASE)
 
     for html_name in html_files:
