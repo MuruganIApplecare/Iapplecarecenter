@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://iapplecarecenter.com/</loc>
-    <lastmod>2026-02-03</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://iapplecarecenter.com/images/ipad/hero_endframe__sg50vzdd6sqm_large_2x.webp</image:loc>
+      <image:title>Apple Device Repair Service Center Bangalore</image:title>
+      <image:caption>iAppleCareCenter Authorized Apple Service Center in Bangalore</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://iapplecarecenter.com/images/macbook/macbook-air-13.webp</image:loc>
+      <image:title>MacBook Repair Service Bangalore</image:title>
+      <image:caption>Professional MacBook screen and battery replacement services</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://iapplecarecenter.com/images/iphone/iphone-card-40-17pro-202509.webp</image:loc>
+      <image:title>iPhone Repair Service Bangalore</image:title>
+      <image:caption>Genuine parts iPhone repair screen and battery replacements</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://iapplecarecenter.com/images/mac/imac-digitalmat-gallery-1-202410.webp</image:loc>
+      <image:title>iMac Repair Service Bangalore</image:title>
+      <image:caption>Expert iMac display and performance diagnostics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://iapplecarecenter.com/images/iwatch/watch-card-40-s11-202509_GEO_IN.webp</image:loc>
+      <image:title>Apple Watch Repair Service Bangalore</image:title>
+      <image:caption>Apple Watch screen replacement and diagnostics</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://iapplecarecenter.com/images/airpod/airpods_max_black__x3byrd2venmu_large_2x.webp</image:loc>
+      <image:title>AirPods Repair Service Bangalore</image:title>
+      <image:caption>AirPods connectivity and charging repair</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://iapplecarecenter.com/privacy-policy.html</loc>
@@ -20,8 +51,13 @@
   </url>
   <url>
     <loc>https://iapplecarecenter.com/booking.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://iapplecarecenter.com/images/ipad/hero_endframe__sg50vzdd6sqm_large_2x.webp</image:loc>
+      <image:title>Book Apple Service Appointment Bangalore</image:title>
+      <image:caption>iAppleCareCenter Booking Form for Repair Service</image:caption>
+    </image:image>
   </url>
 </urlset>

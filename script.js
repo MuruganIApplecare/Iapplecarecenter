@@ -1,6 +1,20 @@
+// Load external stylesheets asynchronously to avoid render-blocking
+(function() {
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap';
+    document.head.appendChild(fontLink);
+
+    const faLink = document.createElement('link');
+    faLink.rel = 'stylesheet';
+    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    document.head.appendChild(faLink);
+})();
+
 // Page Loader
 window.addEventListener('load', () => {
     const pageLoader = document.getElementById('pageLoader');
+
     const body = document.body;
 
     // Remove loading class from body

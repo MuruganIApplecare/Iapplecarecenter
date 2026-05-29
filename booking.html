@@ -40,10 +40,14 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Deferred loading fallback for non-JS browsers -->
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 </head>
 
 <body class="booking-page">
@@ -293,6 +297,28 @@
                 "item": "https://iapplecarecenter.com/booking.html"
             }
         ]
+    }
+    </script>
+
+    <!-- LocalBusiness Schema (Simplified Reference for Entity Consistency) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://iapplecarecenter.com",
+        "name": "iApple Care Center",
+        "url": "https://iapplecarecenter.com",
+        "logo": "https://iapplecarecenter.com/images/og-image.webp",
+        "telephone": "+919977755517",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shop 164/2, Manipal County Rd, near Silver Town Apartments, Begur",
+            "addressLocality": "Bengaluru",
+            "addressRegion": "Karnataka",
+            "postalCode": "560114",
+            "addressCountry": "IN"
+        }
     }
     </script>
 

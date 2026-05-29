@@ -1,7 +1,33 @@
 User-agent: *
 Allow: /
-
 Disallow: /api/
 Disallow: /v1/
+
+# Explicitly allow AI crawlers for Generative Engine Optimization (GEO)
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /v1/
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 
 Sitemap: https://iapplecarecenter.com/sitemap.xml

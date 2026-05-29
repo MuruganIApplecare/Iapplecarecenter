@@ -12,21 +12,15 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://iapplecarecenter.com/">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://iapplecarecenter.com/">
-    <meta property="og:title" content="iApple Care Center | Apple Device Repair Services">
-    <meta property="og:description"
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@iapplecarecenter">
+    <meta name="twitter:creator" content="@iapplecarecenter">
+    <meta name="twitter:url" content="https://iapplecarecenter.com/">
+    <meta name="twitter:title" content="iApple Care Center | Apple Device Repair Services">
+    <meta name="twitter:description"
         content="Professional Apple device repair services for iPhone, MacBook, iPad, screen replacement and more.">
-    <meta property="og:image" content="https://iapplecarecenter.com/images/og-image.webp">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://iapplecarecenter.com/">
-    <meta property="twitter:title" content="iApple Care Center | Apple Device Repair Services">
-    <meta property="twitter:description"
-        content="Professional Apple device repair services for iPhone, MacBook, iPad, screen replacement and more.">
-    <meta property="twitter:image" content="https://iapplecarecenter.com/images/og-image.webp">
+    <meta name="twitter:image" content="https://iapplecarecenter.com/images/og-image.webp">
 
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy"
@@ -42,10 +36,14 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Deferred loading fallback for non-JS browsers -->
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
 
 </head>
 
@@ -1082,9 +1080,11 @@
         "@type": "LocalBusiness",
         "name": "iApple Care Center",
         "image": "https://iapplecarecenter.com/images/og-image.webp",
+        "logo": "https://iapplecarecenter.com/images/og-image.webp",
         "@id": "https://iapplecarecenter.com",
         "url": "https://iapplecarecenter.com",
         "telephone": "+919977755517",
+        "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Shop 164/2, Manipal County Rd, near Silver Town Apartments, Begur",
@@ -1115,6 +1115,13 @@
             "https://www.facebook.com/iapplecarecenter",
             "https://www.instagram.com/iapplecarecenter"
         ],
+        "knowsAbout": [
+            "https://www.wikidata.org/entity/Q312",
+            "Apple Repair Services",
+            "iPhone screen replacement",
+            "MacBook logic board repair",
+            "iPad battery service"
+        ],
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
@@ -1131,7 +1138,8 @@
         "serviceType": "Apple Device Repair",
         "provider": {
             "@type": "LocalBusiness",
-            "name": "iApple Care Center"
+            "name": "iApple Care Center",
+            "@id": "https://iapplecarecenter.com"
         },
         "areaServed": {
             "@type": "City",
@@ -1145,31 +1153,85 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "iPhone Screen Replacement"
+                        "name": "iPhone Screen Replacement",
+                        "brand": {
+                            "@type": "Brand",
+                            "name": "Apple",
+                            "sameAs": "https://www.wikidata.org/entity/Q312"
+                        }
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "MacBook Battery Replacement"
+                        "name": "MacBook Battery Replacement",
+                        "brand": {
+                            "@type": "Brand",
+                            "name": "Apple",
+                            "sameAs": "https://www.wikidata.org/entity/Q312"
+                        }
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "iPad Repair Services"
+                        "name": "iPad Repair Services",
+                        "brand": {
+                            "@type": "Brand",
+                            "name": "Apple",
+                            "sameAs": "https://www.wikidata.org/entity/Q312"
+                        }
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Apple Watch Service"
+                        "name": "Apple Watch Service",
+                        "brand": {
+                            "@type": "Brand",
+                            "name": "Apple",
+                            "sameAs": "https://www.wikidata.org/entity/Q312"
+                        }
                     }
                 }
             ]
+        }
+    }
+    </script>
+
+    <!-- Product Schema for Google Knowledge Graph & AI Discovery -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Apple Device Repair Services",
+        "image": [
+            "https://iapplecarecenter.com/images/iphone/iphone-card-40-17pro-202509.webp",
+            "https://iapplecarecenter.com/images/macbook/macbook-air-13.webp",
+            "https://iapplecarecenter.com/images/ipad/hero_endframe__sg50vzdd6sqm_large_2x.webp"
+        ],
+        "description": "Professional repair and service for Apple devices (iPhone, MacBook, iPad, Apple Watch, AirPods) using genuine parts at iAppleCareCenter Bangalore.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Apple",
+            "sameAs": "https://www.wikidata.org/entity/Q312"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": "999",
+            "highPrice": "24999",
+            "offerCount": "25",
+            "priceRange": "INR 999 - 24999",
+            "url": "https://iapplecarecenter.com/booking.html"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "150"
         }
     }
     </script>
@@ -1210,6 +1272,16 @@
         "name": "iApple Care Center",
         "url": "https://iapplecarecenter.com",
         "description": "Authorized Apple Service Center in Bangalore for iPhone, MacBook, iPad, iMac, Apple Watch, and AirPods repair",
+        "author": {
+            "@type": "Organization",
+            "name": "iApple Care Center",
+            "url": "https://iapplecarecenter.com",
+            "logo": "https://iapplecarecenter.com/images/og-image.webp",
+            "sameAs": [
+                "https://www.facebook.com/iapplecarecenter",
+                "https://www.instagram.com/iapplecarecenter"
+            ]
+        },
         "potentialAction": {
             "@type": "SearchAction",
             "target": "https://iapplecarecenter.com/?s={search_term_string}",
