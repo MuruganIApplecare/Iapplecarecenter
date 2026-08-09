@@ -719,7 +719,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Responsive Overrides for Hero Layout */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 30px;
+    }
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -733,6 +743,9 @@ h1, h2, h3, h4, h5, h6 {
     .hero-features,
     .hero-buttons {
         justify-content: center;
+    }
+    .hero-map-container iframe {
+        height: 260px;
     }
 }
 
