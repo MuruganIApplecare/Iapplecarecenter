@@ -106,7 +106,7 @@ def process_code_files(base_dir):
 
     # Rewrite HTML files
     html_files = ["index.html", "booking.html", "privacy-policy.html", "terms-of-service.html", "404.html"]
-    image_extensions_pattern = re.compile(r'images/([^"\'\s>]+)\.(png|jpg|jpeg|jfif)', re.IGNORECASE)
+    image_extensions_pattern = re.compile(r'images/([^"\'\>]+)\.(png|jpg|jpeg|jfif)', re.IGNORECASE)
 
     for html_name in html_files:
         html_path = os.path.join(base_dir, html_name)
