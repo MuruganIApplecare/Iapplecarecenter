@@ -1,5 +1,6 @@
 import os
 import re
+import hashlib
 from PIL import Image
 
 def compress_images(directory):
@@ -91,6 +92,18 @@ def process_code_files(base_dir):
             f.write(minified_js)
         print(f"Minified JS: {os.path.getsize(script_path)/1024:.1f}KB -> {os.path.getsize(script_min_path)/1024:.1f}KB")
 
+    # Calculate content hashes for cache-busting
+    css_hash = "1"
+    js_hash = "1"
+    if os.path.exists(styles_min_path):
+        with open(styles_min_path, 'r', encoding='utf-8') as f:
+            css_hash = hashlib.md5(f.read().encode('utf-8')).hexdigest()[:8]
+    if os.path.exists(script_min_path):
+        with open(script_min_path, 'r', encoding='utf-8') as f:
+            js_hash = hashlib.md5(f.read().encode('utf-8')).hexdigest()[:8]
+
+    print(f"Content hashes - CSS: {css_hash}, JS: {js_hash}")
+
     # Rewrite HTML files
     html_files = ["index.html", "booking.html", "privacy-policy.html", "terms-of-service.html", "404.html"]
     image_extensions_pattern = re.compile(r'images/([^"\'\s>]+)\.(png|jpg|jpeg|jfif)', re.IGNORECASE)
@@ -104,32 +117,33 @@ def process_code_files(base_dir):
         with open(html_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # 1. Replace styles.css with styles.min.css
-        content = content.replace('href="styles.css"', 'href="styles.min.css"')
-        content = content.replace("href='styles.css'", "href='styles.min.css'")
+        # 1. Replace styles link with cache-busted version
+        content = re.sub(
+            r'href=["\'](?:styles\.css|styles\.min\.css)(?:\?v=[a-fA-F0-9]+)?["\']',
+            f'href="styles.min.css?v={css_hash}"',
+            content
+        )
 
-        # 2. Replace script.js with script.min.js and add defer
-        content = content.replace('<script src="script.js"></script>', '<script src="script.min.js" defer></script>')
-        content = content.replace("<script src='script.js'></script>", "<script src='script.min.js' defer></script>")
+        # 2. Replace script link with cache-busted version
+        content = re.sub(
+            r'src=["\'](?:script\.js|script\.min\.js)(?:\?v=[a-fA-F0-9]+)?["\'](?:\s+defer)?',
+            f'src="script.min.js?v={js_hash}" defer',
+            content
+        )
 
         # 3. Replace image extensions with .webp
-        # We find all matches for images/... and replace their extensions
         def img_replace(match):
             path = match.group(1)
-            # Make sure we don't accidentally replace download/scraped pages if any, but it's fine for standard images
             return f"images/{path}.webp"
 
         content = image_extensions_pattern.sub(img_replace, content)
 
         # 4. Add loading="lazy" for below-the-fold images if they don't have it, excluding hero-image
-        # A simple regex for <img> tags
         img_tags = re.findall(r'<img[^>]+>', content)
         for img_tag in img_tags:
-            # Skip if it is the hero-image or already has loading attribute
             if 'hero-image' in img_tag or 'loading=' in img_tag:
                 continue
             
-            # Insert loading="lazy"
             new_img_tag = img_tag.replace('src=', 'loading="lazy" src=')
             content = content.replace(img_tag, new_img_tag)
 
