@@ -417,38 +417,118 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     z-index: 0;
     overflow: hidden;
-    background: var(--white);
+    background: #ffffff; /* Premium white base */
 }
 
+/* Elegant light drifting glowing orbs */
 .hero-background::before {
-    display: none;
+    content: '';
+    position: absolute;
+    width: 90vw;
+    height: 90vw;
+    max-width: 900px;
+    max-height: 900px;
+    background: radial-gradient(circle, rgba(0, 122, 255, 0.12) 0%, rgba(138, 43, 226, 0.04) 50%, transparent 100%);
+    top: -200px;
+    right: -200px;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    animation: drift-slow 30s ease-in-out infinite alternate;
 }
 
-.hero-image {
+.hero-background::after {
+    content: '';
+    position: absolute;
+    width: 70vw;
+    height: 70vw;
+    max-width: 700px;
+    max-height: 700px;
+    background: radial-gradient(circle, rgba(0, 170, 255, 0.1) 0%, rgba(0, 122, 255, 0.01) 60%, transparent 100%);
+    bottom: -150px;
+    left: -150px;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    animation: drift-medium 25s ease-in-out infinite alternate-reverse;
+}
+
+/* Accent glow to tie the color scheme together */
+.hero-glow-center {
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    max-width: 500px;
+    max-height: 500px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.04) 0%, transparent 70%);
+    top: 25%;
+    left: 25%;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+    animation: pulse-slow 15s ease-in-out infinite alternate;
+}
+
+/* Subtle tech grid pattern to look elegant and premium */
+.hero-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: 1;
-    animation: zoomIn 20s ease-in-out infinite alternate;
+    z-index: 1;
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center;
+    mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0.1) 80%);
+    -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0.1) 80%);
+    opacity: 0.8;
+    pointer-events: none;
 }
- 
+
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for white text contrast */
-    z-index: 1;
+    background: radial-gradient(circle at center, transparent 40%, rgba(255, 255, 255, 0.3) 100%),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5));
+    z-index: 2;
+    pointer-events: none;
 }
 
-@keyframes zoomIn {
+@keyframes drift-slow {
     0% {
-        transform: scale(1);
+        transform: translate(0, 0) scale(1);
     }
-
     100% {
-        transform: scale(1.1);
+        transform: translate(-100px, 50px) scale(1.1);
+    }
+}
+
+@keyframes drift-medium {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(80px, -60px) scale(1.05);
+    }
+}
+
+@keyframes pulse-slow {
+    0% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 0.8;
+        transform: scale(1.15);
     }
 }
 
@@ -456,25 +536,35 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 10px;
     line-height: 1.2;
-    color: var(--white);
+    color: var(--text-color); /* Dark space gray */
 }
 
 .hero-subtitle {
     font-size: 1rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    color: var(--text-light); /* Premium Apple gray text */
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -482,8 +572,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-contact-info {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: flex-start;
+    gap: 20px;
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
@@ -492,9 +582,10 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--white);
+    color: var(--text-color);
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(5px);
     padding: 10px 20px;
     border-radius: 25px;
@@ -502,12 +593,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-contact-item:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
 }
 
 .hero-contact-item i {
-    color: var(--white);
+    color: #007aff;
     font-size: 1.1rem;
 }
 
@@ -516,13 +607,13 @@ h1, h2, h3, h4, h5, h6 {
 }
  
 .hero .highlight {
-    color: #00aaff; /* Bright blue for dark background */
+    color: #007aff; /* Apple primary blue for light background contrast */
 }
 
 .hero-features {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: flex-start;
+    gap: 20px;
     margin: 30px 0;
     flex-wrap: wrap;
 }
@@ -532,17 +623,17 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 10px;
     font-size: 1.1rem;
-    color: var(--white);
+    color: var(--text-color);
 }
 
 .feature-item i {
-    color: #00aaff; /* Bright blue for icons on dark background */
+    color: #007aff;
 }
 
 .hero-buttons {
     display: flex;
     gap: 20px;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 40px;
     flex-wrap: wrap;
 }
@@ -550,6 +641,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero .btn-primary {
     background: #007aff;
     border: none;
+    color: var(--white);
 }
  
 .hero .btn-primary:hover {
@@ -557,13 +649,90 @@ h1, h2, h3, h4, h5, h6 {
 }
  
 .hero .btn-secondary {
-    color: var(--white);
-    border-color: var(--white);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
 }
  
 .hero .btn-secondary:hover {
-    background: var(--white);
-    color: #1d1d1f;
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+/* Map Card Styling */
+.hero-map-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-map-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+    padding: 16px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.hero-map-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 122, 255, 0.25);
+}
+
+.hero-map-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-left: 4px;
+}
+
+.hero-map-header i {
+    color: #007aff;
+    font-size: 1.2rem;
+}
+
+.hero-map-header span {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+}
+
+.hero-map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hero-map-container iframe {
+    display: block;
+    width: 100%;
+    height: 320px;
+}
+
+/* Responsive Overrides for Hero Layout */
+@media (max-width: 992px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .hero-contact-info,
+    .hero-features,
+    .hero-buttons {
+        justify-content: center;
+    }
 }
 
 .slider-dots {

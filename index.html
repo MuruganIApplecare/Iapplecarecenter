@@ -24,7 +24,7 @@
 
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:; video-src 'self';">
+        content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data: https:; video-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com;">
 
     <title>iApple Care Center | Apple Device Repair Services</title>
 
@@ -106,12 +106,13 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <img src="images/ipad/hero_endframe__sg50vzdd6sqm_large_2x.webp" alt="Apple Device Repair Background" class="hero-image">
+            <div class="hero-glow-center"></div>
+            <div class="hero-grid-overlay"></div>
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-slider">
             <div class="slide active">
-                <div class="container">
+                <div class="container hero-grid">
                     <div class="hero-content fade-in-up">
                         <h1>Service Center in <span class="highlight">Bangalore</span></h1>
                         <p class="hero-subtitle">Authorized Service Center</p>
@@ -148,6 +149,25 @@
                             <a href="#devices" class="btn btn-secondary">Our Services</a>
                         </div>
                     </div>
+                    <div class="hero-map-wrapper reveal zoom-in delay-200">
+                        <div class="hero-map-card">
+                            <div class="hero-map-header">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Begur Service Center</span>
+                            </div>
+                            <div class="hero-map-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31113.496689759668!2d77.61709332721175!3d12.895688527953208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15f00ed0548b%3A0x4f15390452616d61!2siAppleCareCenter!5e0!3m2!1sen!2sin!4v1786261512813!5m2!1sen!2sin" 
+                                    width="100%" 
+                                    height="320" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="strict-origin-when-cross-origin">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -166,16 +186,20 @@
                 <div class="device-card reveal fade-left delay-100">
                     <div class="device-images">
                         <div class="device-image">
-                            <img src="images/macbook/macbook-air-13.webp" alt="MacBook Air Silver Edition"
+                            <img src="images/macbook/circle lap.jfif" alt="Apple MacBook Repair"
                                 loading="lazy">
                         </div>
                         <div class="device-image">
-                            <img src="images/macbook/mac-macbook-pro-side.webp" alt="MacBook Pro Space Gray Side View"
+                            <img src="images/macbook/IMG_3494.JPG.webp" alt="MacBook Diagnostics"
                                 loading="lazy">
                         </div>
                         <div class="device-image">
-                            <img src="images/macbook/mac-macbook-pro-size-unselect-202601-gallery-1.webp"
-                                alt="MacBook Pro Retina Display" loading="lazy">
+                            <img src="images/macbook/XHHM3sLJQEp9ozs99Kv4mh-1480-80.webp" alt="MacBook Component Repair"
+                                loading="lazy">
+                        </div>
+                        <div class="device-image">
+                            <img src="images/macbook/images (1).jfif" alt="MacBook Screen Replacement"
+                                loading="lazy">
                         </div>
                     </div>
                     <h3>MacBook</h3>
