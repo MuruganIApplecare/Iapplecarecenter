@@ -2092,10 +2092,11 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     animation: pulse-whatsapp 2s infinite;
     background: transparent;
     text-decoration: none;
+    overflow: visible;
 }
 
 .whatsapp-float img {
@@ -2105,6 +2106,9 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: contain;
     filter: none;
     transition: transform 0.3s ease;
+    /* Override global img fade-in animation to prevent black bg flash */
+    opacity: 1;
+    animation: none;
 }
 
 .whatsapp-float:hover {
@@ -2134,6 +2138,8 @@ h1, h2, h3, h4, h5, h6 {
     height: 24px;
     display: inline-block;
     vertical-align: middle;
+    opacity: 1;
+    animation: none;
 }
 
 .social-links a img {
@@ -2141,6 +2147,8 @@ h1, h2, h3, h4, h5, h6 {
     height: 20px;
     display: block;
     object-fit: contain;
+    opacity: 1;
+    animation: none;
 }
 
 .support-option .whatsapp-icon {
@@ -2149,6 +2157,8 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto 15px;
     display: block;
     object-fit: contain;
+    opacity: 1;
+    animation: none;
 }
 
 .camera-subtitle {
