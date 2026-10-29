@@ -2103,7 +2103,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     display: block;
     object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    filter: none;
     transition: transform 0.3s ease;
 }
 
@@ -2112,7 +2112,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .whatsapp-float:hover img {
-    filter: drop-shadow(0 6px 14px rgba(37, 211, 102, 0.6));
+    filter: none;
 }
 
 @keyframes pulse-whatsapp {
