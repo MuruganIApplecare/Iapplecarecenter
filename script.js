@@ -11,6 +11,40 @@
     document.head.appendChild(faLink);
 })();
 
+// Location Dropdown Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const wrapper = document.getElementById('locationDropdownWrapper');
+    const trigger = document.getElementById('locationDropdownTrigger');
+    const menu = document.getElementById('locationDropdownMenu');
+
+    if (!wrapper || !trigger || !menu) return;
+
+    // Toggle on trigger click
+    trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        wrapper.classList.toggle('open');
+    });
+
+    // Close when a location link is clicked
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            wrapper.classList.remove('open');
+        });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!wrapper.contains(e.target)) {
+            wrapper.classList.remove('open');
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') wrapper.classList.remove('open');
+    });
+});
+
 // Page Loader
 window.addEventListener('load', () => {
     const pageLoader = document.getElementById('pageLoader');

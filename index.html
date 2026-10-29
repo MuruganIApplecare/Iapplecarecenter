@@ -45,7 +45,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="styles.min.css?v=e7e65432">
+    <link rel="stylesheet" href="styles.min.css?v=d5543007">
     
     <!-- Deferred loading fallback for non-JS browsers -->
     <noscript>
@@ -72,9 +72,35 @@
         <div class="container">
             <div class="nav-top-bar">
                 <div class="nav-contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item location-dropdown-wrapper" id="locationDropdownWrapper">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Bangalore, India</span>
+                        <span class="location-dropdown-trigger" id="locationDropdownTrigger">
+                            Bangalore, India <i class="fas fa-chevron-down location-chevron"></i>
+                        </span>
+                        <div class="location-dropdown-menu" id="locationDropdownMenu" role="listbox" aria-label="Service Locations">
+                            <div class="location-dropdown-header">
+                                <i class="fas fa-map-marker-alt"></i> Our Service Areas
+                            </div>
+                            <ul>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Begur</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Koramangala</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> HSR Layout</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Sarjapur</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Electronics City</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Hosur</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Krishnagiri</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Bannerghatta Road</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> BTM Stage 1</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> BTM Stage 2</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> JP Nagar</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Jayanagar</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Banashankari</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Whitefield</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> MG Road</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Hebbal</a></li>
+                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Brigade Road</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -1340,7 +1366,7 @@
     }
     </script>
 
-    <script src="script.min.js?v=06132680" defer></script>
+    <script src="script.min.js?v=31a181d5" defer></script>
 </body>
 
 </html>
