@@ -983,6 +983,13 @@ h1, h2, h3, h4, h5, h6 {
     gap: 30px;
 }
 
+.devices-grid .device-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 540px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .device-card {
     background: var(--white);
     padding: 20px;
@@ -2621,6 +2628,11 @@ img[src] {
 
     .devices-grid {
         grid-template-columns: 1fr;
+    }
+
+    .devices-grid .device-card:last-child:nth-child(odd) {
+        max-width: 100%;
+        margin: 0;
     }
 
     .device-images {
