@@ -11,39 +11,83 @@
     document.head.appendChild(faLink);
 })();
 
-// Location Dropdown Toggle
+// Location Dropdown — Selection + Persistence
 document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.getElementById('locationDropdownWrapper');
     const trigger = document.getElementById('locationDropdownTrigger');
-    const menu = document.getElementById('locationDropdownMenu');
+    const menu    = document.getElementById('locationDropdownMenu');
+    const label   = document.getElementById('locationLabel');
+    const badge   = document.getElementById('currentLocationBadge');
 
-    if (!wrapper || !trigger || !menu) return;
+    if (!wrapper || !trigger || !menu || !label) return;
 
-    // Toggle on trigger click
+    const STORAGE_KEY = 'iapple_selected_location';
+
+    // ── Apply a selected location ──────────────────────────────────
+    function applyLocation(locationName, save = true) {
+        // Update trigger label
+        label.style.opacity = '0';
+        setTimeout(() => {
+            label.textContent = locationName;
+            label.style.opacity = '1';
+        }, 150);
+
+        // Update dropdown header badge
+        if (badge) badge.textContent = `Serving: ${locationName}`;
+
+        // Mark selected item, clear others
+        menu.querySelectorAll('a[data-location]').forEach(a => {
+            a.classList.toggle('location-selected', a.dataset.location === locationName);
+        });
+
+        // Persist to localStorage
+        if (save) {
+            try { localStorage.setItem(STORAGE_KEY, locationName); } catch (e) {}
+        }
+    }
+
+    // ── Restore saved location on page load ───────────────────────
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) applyLocation(saved, false);
+    } catch (e) {}
+
+    // ── Toggle dropdown on trigger click ──────────────────────────
     trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         wrapper.classList.toggle('open');
     });
 
-    // Close when a location link is clicked
-    menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
+    // ── Location item click ───────────────────────────────────────
+    menu.querySelectorAll('a[data-location]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const loc = link.dataset.location;
+            applyLocation(loc);
             wrapper.classList.remove('open');
+
+            // Smooth-scroll to #locations section after brief delay
+            setTimeout(() => {
+                const target = document.getElementById('locations');
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            }, 200);
         });
     });
 
-    // Close when clicking outside
+    // ── Close on outside click ────────────────────────────────────
     document.addEventListener('click', (e) => {
-        if (!wrapper.contains(e.target)) {
-            wrapper.classList.remove('open');
-        }
+        if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
     });
 
-    // Close on Escape key
+    // ── Close on Escape ───────────────────────────────────────────
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') wrapper.classList.remove('open');
     });
 });
+
 
 // Page Loader
 window.addEventListener('load', () => {

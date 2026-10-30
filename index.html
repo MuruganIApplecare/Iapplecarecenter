@@ -45,7 +45,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="styles.min.css?v=d5543007">
+    <link rel="stylesheet" href="styles.min.css?v=a6e701da">
     
     <!-- Deferred loading fallback for non-JS browsers -->
     <noscript>
@@ -73,32 +73,37 @@
             <div class="nav-top-bar">
                 <div class="nav-contact-info">
                     <div class="contact-item location-dropdown-wrapper" id="locationDropdownWrapper">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt location-pin-icon"></i>
                         <span class="location-dropdown-trigger" id="locationDropdownTrigger">
-                            Bangalore, India <i class="fas fa-chevron-down location-chevron"></i>
+                            <span id="locationLabel">Bangalore, India</span>
+                            <i class="fas fa-chevron-down location-chevron"></i>
                         </span>
                         <div class="location-dropdown-menu" id="locationDropdownMenu" role="listbox" aria-label="Service Locations">
                             <div class="location-dropdown-header">
-                                <i class="fas fa-map-marker-alt"></i> Our Service Areas
+                                <i class="fas fa-location-dot"></i>
+                                <div class="location-header-text">
+                                    <span>Our Service Areas</span>
+                                    <small id="currentLocationBadge">Tap a location to select</small>
+                                </div>
                             </div>
                             <ul>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Begur</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Koramangala</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> HSR Layout</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Sarjapur</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Electronics City</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Hosur</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Krishnagiri</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Bannerghatta Road</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> BTM Stage 1</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> BTM Stage 2</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> JP Nagar</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Jayanagar</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Banashankari</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Whitefield</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> MG Road</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Hebbal</a></li>
-                                <li><a href="#locations"><i class="fas fa-circle-dot"></i> Brigade Road</a></li>
+                                <li><a href="#locations" data-location="Begur"><i class="fas fa-circle-dot"></i> Begur</a></li>
+                                <li><a href="#locations" data-location="Koramangala"><i class="fas fa-circle-dot"></i> Koramangala</a></li>
+                                <li><a href="#locations" data-location="HSR Layout"><i class="fas fa-circle-dot"></i> HSR Layout</a></li>
+                                <li><a href="#locations" data-location="Sarjapur"><i class="fas fa-circle-dot"></i> Sarjapur</a></li>
+                                <li><a href="#locations" data-location="Electronics City"><i class="fas fa-circle-dot"></i> Electronics City</a></li>
+                                <li><a href="#locations" data-location="Hosur"><i class="fas fa-circle-dot"></i> Hosur</a></li>
+                                <li><a href="#locations" data-location="Krishnagiri"><i class="fas fa-circle-dot"></i> Krishnagiri</a></li>
+                                <li><a href="#locations" data-location="Bannerghatta Road"><i class="fas fa-circle-dot"></i> Bannerghatta Road</a></li>
+                                <li><a href="#locations" data-location="BTM Stage 1"><i class="fas fa-circle-dot"></i> BTM Stage 1</a></li>
+                                <li><a href="#locations" data-location="BTM Stage 2"><i class="fas fa-circle-dot"></i> BTM Stage 2</a></li>
+                                <li><a href="#locations" data-location="JP Nagar"><i class="fas fa-circle-dot"></i> JP Nagar</a></li>
+                                <li><a href="#locations" data-location="Jayanagar"><i class="fas fa-circle-dot"></i> Jayanagar</a></li>
+                                <li><a href="#locations" data-location="Banashankari"><i class="fas fa-circle-dot"></i> Banashankari</a></li>
+                                <li><a href="#locations" data-location="Whitefield"><i class="fas fa-circle-dot"></i> Whitefield</a></li>
+                                <li><a href="#locations" data-location="MG Road"><i class="fas fa-circle-dot"></i> MG Road</a></li>
+                                <li><a href="#locations" data-location="Hebbal"><i class="fas fa-circle-dot"></i> Hebbal</a></li>
+                                <li><a href="#locations" data-location="Brigade Road"><i class="fas fa-circle-dot"></i> Brigade Road</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1366,7 +1371,7 @@
     }
     </script>
 
-    <script src="script.min.js?v=31a181d5" defer></script>
+    <script src="script.min.js?v=791d0711" defer></script>
 </body>
 
 </html>
