@@ -511,8 +511,8 @@
                                 </div>
                             </div>
                             <ul>
-                                <li><a href="location.html?loc=Begur" data-location="Begur"><i class="fas fa-circle-dot"></i> Begur</a></li>
                                 <li><a href="location.html?loc=Singasandra" data-location="Singasandra"><i class="fas fa-circle-dot"></i> Singasandra</a></li>
+                                <li><a href="location.html?loc=Begur" data-location="Begur"><i class="fas fa-circle-dot"></i> Begur</a></li>
                                 <li><a href="location.html?loc=Koramangala" data-location="Koramangala"><i class="fas fa-circle-dot"></i> Koramangala</a></li>
                                 <li><a href="location.html?loc=HSR+Layout" data-location="HSR Layout"><i class="fas fa-circle-dot"></i> HSR Layout</a></li>
                                 <li><a href="location.html?loc=Sarjapur" data-location="Sarjapur"><i class="fas fa-circle-dot"></i> Sarjapur</a></li>
@@ -739,17 +739,17 @@
     <script>
     // ── Location Data ─────────────────────────────────────────────
     const LOCATIONS = {
-        'Begur': {
-            area:    'Begur, South Bangalore',
-            address: 'Near Begur Main Road, South Bangalore, Karnataka 560068',
-            mapQ:    'iApple+Care+Center+Begur+Bangalore',
-            dirQ:    'iApple+Care+Center+Begur+South+Bangalore'
-        },
         'Singasandra': {
             area:    'Singasandra, South Bangalore',
             address: '427, 3rd Floor, B Block, AECS Layout, Singasandra, Bengaluru, Karnataka 560068',
             mapQ:    'iApple+Care+Center+Singasandra+Bangalore',
             dirQ:    'iApple+Care+Center+Singasandra+Bangalore'
+        },
+        'Begur': {
+            area:    'Begur, South Bangalore',
+            address: 'Near Begur Main Road, South Bangalore, Karnataka 560068',
+            mapQ:    'iApple+Care+Center+Begur+Bangalore',
+            dirQ:    'iApple+Care+Center+Begur+South+Bangalore'
         },
         'Koramangala': {
             area:    'Koramangala, Bangalore',
@@ -975,7 +975,7 @@
 
     window.addEventListener('popstate', (e) => {
         let locKey = (e.state && e.state.loc) || getLocParam();
-        if (!locKey || !LOCATIONS[locKey]) locKey = 'Bannerghatta Road';
+        if (!locKey || !LOCATIONS[locKey]) locKey = 'Singasandra';
         renderLocation(locKey);
     });
 
@@ -991,8 +991,8 @@
         if (locKey && LOCATIONS[locKey]) {
             renderLocation(locKey);
         } else {
-            // No param — default to Bannerghatta Road
-            renderLocation('Bannerghatta Road');
+            // No param — default to Singasandra
+            renderLocation('Singasandra');
         }
     });
     </script>
