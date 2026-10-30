@@ -105,7 +105,7 @@ def process_code_files(base_dir):
     print(f"Content hashes - CSS: {css_hash}, JS: {js_hash}")
 
     # Rewrite HTML files
-    html_files = ["index.html", "booking.html", "privacy-policy.html", "terms-of-service.html", "404.html"]
+    html_files = ["index.html", "booking.html", "location.html", "privacy-policy.html", "terms-of-service.html", "404.html"]
     image_extensions_pattern = re.compile(r'images/([^"\'\>]+)\.(png|jpg|jpeg|jfif)', re.IGNORECASE)
 
     for html_name in html_files:

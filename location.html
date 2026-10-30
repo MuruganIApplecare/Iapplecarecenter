@@ -733,7 +733,7 @@
         <img loading="lazy" src="images/whatsapp.svg" alt="Chat with us on WhatsApp" width="60" height="60">
     </a>
 
-    <script src="script.min.js?v=791d0711"></script>
+    <script src="script.min.js?v=ff175956"></script>
 
     <script>
     // ── Location Data ─────────────────────────────────────────────
@@ -862,6 +862,10 @@
             a.className = 'loc-chip' + (name === activeKey ? ' active' : '');
             a.href      = 'location.html?loc=' + encodeURIComponent(name);
             a.innerHTML = `<i class="fas fa-circle-dot"></i> ${name}`;
+            a.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.switchLocation(name);
+            });
             grid.appendChild(a);
         });
     }
@@ -887,31 +891,50 @@
     function renderLocation(key) {
         const data = LOCATIONS[key];
         if (!data) {
-            document.getElementById('locMainGrid').style.display = 'none';
-            document.getElementById('notFoundState').style.display = 'block';
+            const mainGrid = document.getElementById('locMainGrid');
+            const notFound = document.getElementById('notFoundState');
+            if (mainGrid) mainGrid.style.display = 'none';
+            if (notFound) notFound.style.display = 'block';
             buildChips(null);
             return;
         }
 
+        const mainGrid = document.getElementById('locMainGrid');
+        const notFound = document.getElementById('notFoundState');
+        if (mainGrid) mainGrid.style.display = '';
+        if (notFound) notFound.style.display = 'none';
+
         // Hero
-        document.getElementById('heroLocName').textContent = key;
-        document.getElementById('heroTitle').innerHTML =
-            `iApplecarecenter — <span class="loc-accent" id="heroLocName">${key}</span>`;
-        document.getElementById('heroSubtitle').textContent =
-            `Same-day Apple device repair near ${key}, Bangalore.`;
-        document.title = `${key} | iApple Care Center Service Location`;
+        const heroName = document.getElementById('heroLocName');
+        if (heroName) heroName.textContent = key;
+        const heroTitle = document.getElementById('heroTitle');
+        if (heroTitle) {
+            heroTitle.innerHTML = `iApplecarecenter — <span class="loc-accent" id="heroLocName">${key}</span>`;
+        }
+        const heroSubtitle = document.getElementById('heroSubtitle');
+        if (heroSubtitle) {
+            heroSubtitle.textContent = `Same-day Apple device repair near ${key}, Bangalore.`;
+        }
+        document.title = `${key} | iApplecarecenter Service Location`;
 
         // Map
         const mapSrc = `https://maps.google.com/maps?q=${data.mapQ}&output=embed&z=15`;
-        document.getElementById('locMapFrame').src = mapSrc;
-        document.getElementById('mapFooterLabel').textContent = `iApple Care Center — ${key}`;
-        document.getElementById('directionsLink').href =
-            `https://www.google.com/maps/search/?api=1&query=${data.dirQ}`;
+        const mapFrame = document.getElementById('locMapFrame');
+        if (mapFrame) mapFrame.src = mapSrc;
+        const mapFooter = document.getElementById('mapFooterLabel');
+        if (mapFooter) mapFooter.textContent = `iApplecarecenter — ${key}`;
+        const dirLink = document.getElementById('directionsLink');
+        if (dirLink) {
+            dirLink.href = `https://www.google.com/maps/search/?api=1&query=${data.dirQ}`;
+        }
 
         // Info
-        document.getElementById('infoName').textContent = `iApple Care Center — ${key}`;
-        document.getElementById('infoArea').textContent = data.area;
-        document.getElementById('infoAddress').textContent = data.address;
+        const infoName = document.getElementById('infoName');
+        if (infoName) infoName.textContent = `iApplecarecenter — ${key}`;
+        const infoArea = document.getElementById('infoArea');
+        if (infoArea) infoArea.textContent = data.area;
+        const infoAddress = document.getElementById('infoAddress');
+        if (infoAddress) infoAddress.textContent = data.address;
 
         setOpenStatus();
         buildChips(key);
@@ -931,50 +954,26 @@
         }
     }
 
+    // ── Global switch function for dropdown & chips ───────────────
+    window.switchLocation = function(locKey) {
+        if (!LOCATIONS[locKey]) return;
+        try { localStorage.setItem('iapple_selected_location', locKey); } catch(e) {}
+        const newUrl = 'location.html?loc=' + encodeURIComponent(locKey);
+        if (window.location.search !== '?loc=' + encodeURIComponent(locKey)) {
+            history.pushState({ loc: locKey }, '', newUrl);
+        }
+        renderLocation(locKey);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', (e) => {
+        let locKey = (e.state && e.state.loc) || getLocParam();
+        if (!locKey || !LOCATIONS[locKey]) locKey = 'Bannerghatta Road';
+        renderLocation(locKey);
+    });
+
     // ── Init ──────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', () => {
-        // Mobile menu
-        const hamburger = document.getElementById('hamburger');
-        const navMenu   = document.getElementById('navMenu');
-        if (hamburger && navMenu) {
-            hamburger.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-        }
-
-        // ── Location Dropdown Toggle ───────────────────────────────
-        const wrapper = document.getElementById('locationDropdownWrapper');
-        const trigger = document.getElementById('locationDropdownTrigger');
-        const menu    = document.getElementById('locationDropdownMenu');
-
-        if (wrapper && trigger && menu) {
-            trigger.addEventListener('click', (e) => {
-                e.stopPropagation();
-                wrapper.classList.toggle('open');
-            });
-
-            // Each link navigates directly (href is already set in HTML)
-            menu.querySelectorAll('a[data-location]').forEach(link => {
-                link.addEventListener('click', () => {
-                    wrapper.classList.remove('open');
-                    try {
-                        localStorage.setItem('iapple_selected_location', link.dataset.location);
-                    } catch(e) {}
-                    // navigation happens via the href
-                });
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
-            });
-
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') wrapper.classList.remove('open');
-            });
-        }
-
-        // ── Render Location ───────────────────────────────────────
         let locKey = getLocParam();
 
         // Fallback: try localStorage
@@ -987,7 +986,6 @@
         } else {
             // No param — default to Bannerghatta Road
             renderLocation('Bannerghatta Road');
-            buildChips(null);
         }
     });
     </script>

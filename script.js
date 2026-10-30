@@ -66,6 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             applyLocation(loc);
             wrapper.classList.remove('open');
 
+            // If already on location.html, update in-place smoothly
+            if (typeof window.switchLocation === 'function') {
+                window.switchLocation(loc);
+                return;
+            }
+
             // Navigate to the location detail page
             setTimeout(() => {
                 window.location.href = 'location.html?loc=' + encodeURIComponent(loc);
