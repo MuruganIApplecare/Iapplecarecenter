@@ -66,14 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
             applyLocation(loc);
             wrapper.classList.remove('open');
 
-            // Smooth-scroll to #locations section after brief delay
+            // Navigate to the location detail page
             setTimeout(() => {
-                const target = document.getElementById('locations');
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                }
-            }, 200);
+                window.location.href = 'location.html?loc=' + encodeURIComponent(loc);
+            }, 180);
         });
     });
 

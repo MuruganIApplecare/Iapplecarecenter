@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find iApple Care Center near you. Apple device repair service in Bangalore — iPhone, MacBook, iPad, Apple Watch repairs with same-day service.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://iapplecarecenter.com/location.html">
+    <title>Service Location | iApple Care Center Bangalore</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="styles.min.css?v=a6e701da">
+
+    <style>
+        /* ── Location Page Specific Styles ─────────────────── */
+        .loc-hero {
+            margin-top: 130px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #2c2c2e 100%);
+            padding: 48px 0 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loc-hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,122,255,0.12) 0%, transparent 70%);
+            top: -150px;
+            right: -100px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .loc-hero-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .loc-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            transition: all 0.25s ease;
+            background: rgba(255,255,255,0.05);
+            flex-shrink: 0;
+        }
+
+        .loc-back-btn:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .loc-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        .loc-breadcrumb span { color: rgba(255,255,255,0.85); font-weight: 600; }
+        .loc-breadcrumb i   { font-size: 0.65rem; }
+
+        .loc-title-block {
+            margin-top: 20px;
+        }
+
+        .loc-title-block h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 6px;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+
+        .loc-title-block h1 .loc-accent { color: #007aff; }
+
+        .loc-title-block p {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* ── Main Content ─────────────────────────────────── */
+        .loc-content {
+            padding: 40px 0 80px;
+            background: #f5f5f7;
+            min-height: 60vh;
+        }
+
+        .loc-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* Map Card */
+        .loc-map-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border: 1px solid #e8e8e8;
+        }
+
+        .loc-map-card iframe {
+            display: block;
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        .loc-map-footer {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #f0f0f0;
+            background: #fafafa;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .loc-map-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #2c2c2e;
+        }
+
+        .loc-map-label i { color: #007aff; }
+
+        .loc-directions-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #007aff;
+            color: #fff;
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .loc-directions-btn:hover {
+            background: #005bb5;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0,122,255,0.35);
+        }
+
+        /* Info Card */
+        .loc-info-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border: 1px solid #e8e8e8;
+            overflow: hidden;
+        }
+
+        .loc-info-header {
+            background: linear-gradient(135deg, #2c2c2e 0%, #1d1d1f 100%);
+            padding: 24px 24px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loc-info-header::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0,122,255,0.15) 0%, transparent 70%);
+            top: -60px;
+            right: -60px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .loc-info-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0,122,255,0.2);
+            color: #60b4ff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .loc-info-name {
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 4px;
+            line-height: 1.2;
+        }
+
+        .loc-info-area {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.9rem;
+        }
+
+        .loc-info-body {
+            padding: 20px 24px;
+        }
+
+        .loc-detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .loc-detail-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .loc-detail-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #f0f4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .loc-detail-icon i {
+            font-size: 0.95rem;
+            color: #007aff;
+        }
+
+        .loc-detail-content {
+            flex: 1;
+        }
+
+        .loc-detail-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 3px;
+        }
+
+        .loc-detail-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            line-height: 1.4;
+        }
+
+        .loc-detail-value a {
+            color: #007aff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .loc-detail-value a:hover { color: #005bb5; text-decoration: underline; }
+
+        .loc-hours-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .loc-hours-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            color: #3a3a3c;
+        }
+
+        .loc-hours-row .day { color: #86868b; font-weight: 500; }
+        .loc-hours-row .time { font-weight: 600; }
+        .loc-hours-row .time.closed { color: #ff3b30; }
+        .loc-hours-row .time.open { color: #30d158; }
+
+        /* Status Pill */
+        .loc-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        .loc-status-pill.open-now {
+            background: rgba(48,209,88,0.12);
+            color: #30d158;
+        }
+
+        .loc-status-pill.closed-now {
+            background: rgba(255,59,48,0.1);
+            color: #ff3b30;
+        }
+
+        .loc-status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            animation: blink-dot 1.4s ease-in-out infinite;
+        }
+
+        @keyframes blink-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* CTA Buttons */
+        .loc-cta-group {
+            padding: 20px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .loc-cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .loc-cta-btn.primary {
+            background: #1d1d1f;
+            color: #fff;
+        }
+
+        .loc-cta-btn.primary:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .loc-cta-btn.whatsapp-cta {
+            background: #25d366;
+            color: #fff;
+        }
+
+        .loc-cta-btn.whatsapp-cta:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37,211,102,0.35);
+        }
+
+        .loc-cta-btn.call-cta {
+            background: #f0f4ff;
+            color: #007aff;
+        }
+
+        .loc-cta-btn.call-cta:hover {
+            background: #e0ecff;
+            transform: translateY(-2px);
+        }
+
+        /* All Locations strip */
+        .loc-all-strip {
+            padding: 36px 0 50px;
+            background: #fff;
+        }
+
+        .loc-all-strip h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .loc-chips-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .loc-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 16px;
+            background: #f5f5f7;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #2c2c2e;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .loc-chip:hover {
+            background: #1d1d1f;
+            color: #fff;
+            border-color: #1d1d1f;
+            transform: translateY(-2px);
+        }
+
+        .loc-chip.active {
+            background: #1d1d1f;
+            color: #fff;
+            border-color: #1d1d1f;
+        }
+
+        .loc-chip i { font-size: 0.6rem; }
+
+        /* Not Found */
+        .loc-not-found {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .loc-not-found i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .loc-not-found h2 { color: #86868b; margin-bottom: 10px; }
+        .loc-not-found p  { color: #aaa; margin-bottom: 24px; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .loc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .loc-map-card iframe { height: 320px; }
+
+            .loc-title-block h1 { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 600px) {
+            .loc-hero { margin-top: 80px; padding: 32px 0 24px; }
+            .loc-title-block h1 { font-size: 1.5rem; }
+            .loc-info-name { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation (same as index) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-top-bar">
+                <div class="nav-contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" style="color:var(--primary-color)"></i>
+                        <span id="locPageTopBarLabel">Bangalore, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+919977755517" class="contact-link">+91-9977755517</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>iapplecaresuport@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo" aria-label="iapplecarecenter">
+                    <i class="fab fa-apple"></i>
+                    <div class="logo-content">
+                        <span class="logo-text">iapplecarecenter</span>
+                        <span class="authorized-badge">Authorized Service Center</span>
+                    </div>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#devices">Services</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="location.html" class="active">Locations</a></li>
+                    <li><a href="index.html#quote">Contact</a></li>
+                    <li><a href="booking.html" class="btn-primary btn-book">Book Now</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="loc-hero">
+        <div class="container">
+            <div class="loc-hero-inner">
+                <a href="index.html" class="loc-back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+                <div class="loc-breadcrumb">
+                    <a href="index.html" style="color:inherit;text-decoration:none">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Service Location</span>
+                </div>
+            </div>
+            <div class="loc-title-block">
+                <h1 id="heroTitle">Apple Repair — <span class="loc-accent" id="heroLocName">Bangalore</span></h1>
+                <p id="heroSubtitle">Find your nearest iApple Care Center and get same-day Apple device repair.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="loc-content">
+        <div class="container">
+
+            <!-- Not Found State (hidden by default) -->
+            <div class="loc-not-found" id="notFoundState" style="display:none">
+                <i class="fas fa-map-location-dot"></i>
+                <h2>Location Not Found</h2>
+                <p>We couldn't find a service center for that area. Please choose from our available locations below.</p>
+                <a href="location.html" class="btn btn-primary" style="text-decoration:none">View All Locations</a>
+            </div>
+
+            <!-- Main Grid -->
+            <div class="loc-grid" id="locMainGrid">
+                <!-- Map -->
+                <div class="loc-map-card">
+                    <iframe
+                        id="locMapFrame"
+                        src=""
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="iApple Care Center Location Map">
+                    </iframe>
+                    <div class="loc-map-footer">
+                        <div class="loc-map-label">
+                            <i class="fas fa-map-pin"></i>
+                            <span id="mapFooterLabel">iApple Care Center</span>
+                        </div>
+                        <a id="directionsLink" href="#" target="_blank" rel="noopener" class="loc-directions-btn">
+                            <i class="fas fa-route"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div>
+                    <div class="loc-info-card">
+                        <div class="loc-info-header">
+                            <div class="loc-info-badge">
+                                <i class="fas fa-circle-check"></i> Service Center
+                            </div>
+                            <div class="loc-info-name" id="infoName">iApple Care Center</div>
+                            <div class="loc-info-area" id="infoArea">Bangalore, Karnataka</div>
+                        </div>
+
+                        <div class="loc-info-body">
+                            <!-- Address -->
+                            <div class="loc-detail-row">
+                                <div class="loc-detail-icon"><i class="fas fa-location-dot"></i></div>
+                                <div class="loc-detail-content">
+                                    <div class="loc-detail-label">Address</div>
+                                    <div class="loc-detail-value" id="infoAddress">—</div>
+                                </div>
+                            </div>
+                            <!-- Phone -->
+                            <div class="loc-detail-row">
+                                <div class="loc-detail-icon"><i class="fas fa-phone"></i></div>
+                                <div class="loc-detail-content">
+                                    <div class="loc-detail-label">Phone</div>
+                                    <div class="loc-detail-value">
+                                        <a href="tel:+919977755517">+91-9977755517</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Email -->
+                            <div class="loc-detail-row">
+                                <div class="loc-detail-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="loc-detail-content">
+                                    <div class="loc-detail-label">Email</div>
+                                    <div class="loc-detail-value">
+                                        <a href="mailto:iapplecaresuport@gmail.com">iapplecaresuport@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Hours -->
+                            <div class="loc-detail-row">
+                                <div class="loc-detail-icon"><i class="fas fa-clock"></i></div>
+                                <div class="loc-detail-content">
+                                    <div class="loc-detail-label">Working Hours</div>
+                                    <div class="loc-detail-value">
+                                        <div class="loc-hours-grid">
+                                            <div class="loc-hours-row">
+                                                <span class="day">Mon – Sat</span>
+                                                <span class="time open">9:00 AM – 7:00 PM</span>
+                                            </div>
+                                            <div class="loc-hours-row">
+                                                <span class="day">Sunday</span>
+                                                <span class="time open">10:00 AM – 5:00 PM</span>
+                                            </div>
+                                        </div>
+                                        <div class="loc-status-pill" id="openStatus"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Services -->
+                            <div class="loc-detail-row">
+                                <div class="loc-detail-icon"><i class="fas fa-wrench"></i></div>
+                                <div class="loc-detail-content">
+                                    <div class="loc-detail-label">Services</div>
+                                    <div class="loc-detail-value" style="font-size:0.88rem;font-weight:500;color:#3a3a3c;line-height:1.6">
+                                        iPhone · MacBook · iPad · iMac<br>Apple Watch · AirPods · Mac Mini
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="loc-cta-group">
+                            <a href="booking.html" class="loc-cta-btn primary">
+                                <i class="fas fa-calendar-check"></i> Book a Repair
+                            </a>
+                            <a href="https://wa.me/919977755517" target="_blank" rel="noopener" class="loc-cta-btn whatsapp-cta">
+                                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                            <a href="tel:+919977755517" class="loc-cta-btn call-cta">
+                                <i class="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Locations Strip -->
+    <div class="loc-all-strip">
+        <div class="container">
+            <h2><i class="fas fa-map-marker-alt" style="color:#007aff;margin-right:8px"></i>All Service Areas</h2>
+            <div class="loc-chips-grid" id="locChipsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Footer (minimal) -->
+    <footer class="footer" style="padding:30px 0 20px">
+        <div class="container">
+            <div class="footer-bottom" style="border-top:none;padding-top:0">
+                <p>© 2025 iApple Care Center. All Rights Reserved. |
+                    <a href="privacy-policy.html" style="color:rgba(255,255,255,0.5);text-decoration:none;margin-left:5px">Privacy Policy</a> ·
+                    <a href="terms-of-service.html" style="color:rgba(255,255,255,0.5);text-decoration:none;margin-left:5px">Terms</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919977755517" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
+        <img loading="lazy" src="images/whatsapp.svg" alt="Chat with us on WhatsApp" width="60" height="60">
+    </a>
+
+    <script src="script.min.js?v=791d0711"></script>
+
+    <script>
+    // ── Location Data ─────────────────────────────────────────────
+    const LOCATIONS = {
+        'Begur': {
+            area:    'Begur, South Bangalore',
+            address: 'Near Begur Main Road, South Bangalore, Karnataka 560068',
+            mapQ:    'iApple+Care+Center+Begur+Bangalore',
+            dirQ:    'iApple+Care+Center+Begur+South+Bangalore'
+        },
+        'Koramangala': {
+            area:    'Koramangala, Bangalore',
+            address: 'Koramangala, Bangalore, Karnataka 560034',
+            mapQ:    'iApple+Care+Center+Koramangala+Bangalore',
+            dirQ:    'iApple+Care+Center+Koramangala+Bangalore'
+        },
+        'HSR Layout': {
+            area:    'HSR Layout, Bangalore',
+            address: 'HSR Layout, Bengaluru, Karnataka 560102',
+            mapQ:    'iApple+Care+Center+HSR+Layout+Bangalore',
+            dirQ:    'iApple+Care+Center+HSR+Layout+Bangalore'
+        },
+        'Sarjapur': {
+            area:    'Sarjapur Road, Bangalore',
+            address: 'Sarjapur Road, Bengaluru, Karnataka 560035',
+            mapQ:    'iApple+Care+Center+Sarjapur+Road+Bangalore',
+            dirQ:    'iApple+Care+Center+Sarjapur+Bangalore'
+        },
+        'Electronics City': {
+            area:    'Electronics City, Bangalore',
+            address: 'Electronics City, Bengaluru, Karnataka 560100',
+            mapQ:    'iApple+Care+Center+Electronics+City+Bangalore',
+            dirQ:    'iApple+Care+Center+Electronics+City+Bangalore'
+        },
+        'Hosur': {
+            area:    'Hosur, Tamil Nadu',
+            address: 'Hosur, Tamil Nadu 635109',
+            mapQ:    'iApple+Care+Center+Hosur+Tamil+Nadu',
+            dirQ:    'iApple+Care+Center+Hosur'
+        },
+        'Krishnagiri': {
+            area:    'Krishnagiri, Tamil Nadu',
+            address: 'Krishnagiri, Tamil Nadu 635001',
+            mapQ:    'Apple+Service+Center+Krishnagiri+Tamil+Nadu',
+            dirQ:    'Apple+Service+Center+Krishnagiri'
+        },
+        'Bannerghatta Road': {
+            area:    'Bannerghatta Road, South Bangalore',
+            address: '427, 3rd Floor, B Block, AECS Layout, Singasandra, Bengaluru, Karnataka 560068',
+            mapQ:    'iApple+Care+Center+Singasandra+Bannerghatta+Road+Bangalore',
+            dirQ:    'iApple+Care+Center+Singasandra+Bangalore'
+        },
+        'BTM Stage 1': {
+            area:    'BTM Layout Stage 1, Bangalore',
+            address: 'BTM Layout 1st Stage, Bengaluru, Karnataka 560029',
+            mapQ:    'iApple+Care+Center+BTM+Layout+Stage+1+Bangalore',
+            dirQ:    'iApple+Care+Center+BTM+Layout+Bangalore'
+        },
+        'BTM Stage 2': {
+            area:    'BTM Layout Stage 2, Bangalore',
+            address: 'BTM Layout 2nd Stage, Bengaluru, Karnataka 560076',
+            mapQ:    'iApple+Care+Center+BTM+Layout+Stage+2+Bangalore',
+            dirQ:    'iApple+Care+Center+BTM+Layout+Bangalore'
+        },
+        'JP Nagar': {
+            area:    'JP Nagar, Bangalore',
+            address: 'JP Nagar, Bengaluru, Karnataka 560078',
+            mapQ:    'iApple+Care+Center+JP+Nagar+Bangalore',
+            dirQ:    'iApple+Care+Center+JP+Nagar+Bangalore'
+        },
+        'Jayanagar': {
+            area:    'Jayanagar, Bangalore',
+            address: 'Jayanagar, Bengaluru, Karnataka 560041',
+            mapQ:    'iApple+Care+Center+Jayanagar+Bangalore',
+            dirQ:    'iApple+Care+Center+Jayanagar+Bangalore'
+        },
+        'Banashankari': {
+            area:    'Banashankari, Bangalore',
+            address: 'Banashankari, Bengaluru, Karnataka 560070',
+            mapQ:    'iApple+Care+Center+Banashankari+Bangalore',
+            dirQ:    'iApple+Care+Center+Banashankari+Bangalore'
+        },
+        'Whitefield': {
+            area:    'Whitefield, East Bangalore',
+            address: 'Whitefield, Bengaluru, Karnataka 560066',
+            mapQ:    'iApple+Care+Center+Whitefield+Bangalore',
+            dirQ:    'iApple+Care+Center+Whitefield+Bangalore'
+        },
+        'MG Road': {
+            area:    'MG Road, Central Bangalore',
+            address: 'MG Road, Bengaluru, Karnataka 560001',
+            mapQ:    'iApple+Care+Center+MG+Road+Bangalore',
+            dirQ:    'iApple+Care+Center+MG+Road+Bangalore'
+        },
+        'Hebbal': {
+            area:    'Hebbal, North Bangalore',
+            address: 'Hebbal, Bengaluru, Karnataka 560024',
+            mapQ:    'iApple+Care+Center+Hebbal+Bangalore',
+            dirQ:    'iApple+Care+Center+Hebbal+Bangalore'
+        },
+        'Brigade Road': {
+            area:    'Brigade Road, Central Bangalore',
+            address: 'Brigade Road, Bengaluru, Karnataka 560025',
+            mapQ:    'iApple+Care+Center+Brigade+Road+Bangalore',
+            dirQ:    'iApple+Care+Center+Brigade+Road+Bangalore'
+        }
+    };
+
+    const ALL_LOCATIONS = Object.keys(LOCATIONS);
+
+    // ── Read URL Param ────────────────────────────────────────────
+    function getLocParam() {
+        try {
+            const p = new URLSearchParams(window.location.search).get('loc');
+            return p ? decodeURIComponent(p) : null;
+        } catch(e) { return null; }
+    }
+
+    // ── Build all-locations chips ─────────────────────────────────
+    function buildChips(activeKey) {
+        const grid = document.getElementById('locChipsGrid');
+        if (!grid) return;
+        grid.innerHTML = '';
+        ALL_LOCATIONS.forEach(name => {
+            const a = document.createElement('a');
+            a.className = 'loc-chip' + (name === activeKey ? ' active' : '');
+            a.href      = 'location.html?loc=' + encodeURIComponent(name);
+            a.innerHTML = `<i class="fas fa-circle-dot"></i> ${name}`;
+            grid.appendChild(a);
+        });
+    }
+
+    // ── Open/Closed Status ────────────────────────────────────────
+    function setOpenStatus() {
+        const pill = document.getElementById('openStatus');
+        if (!pill) return;
+        const now  = new Date();
+        const day  = now.getDay(); // 0=Sun
+        const hour = now.getHours() + now.getMinutes() / 60;
+        let isOpen = false;
+        if (day === 0) {
+            isOpen = hour >= 10 && hour < 17;       // Sun 10–5
+        } else if (day >= 1 && day <= 6) {
+            isOpen = hour >= 9  && hour < 19;       // Mon–Sat 9–7
+        }
+        pill.className = 'loc-status-pill ' + (isOpen ? 'open-now' : 'closed-now');
+        pill.innerHTML = `<span class="loc-status-dot"></span>${isOpen ? 'Open Now' : 'Closed Now'}`;
+    }
+
+    // ── Render a Location ─────────────────────────────────────────
+    function renderLocation(key) {
+        const data = LOCATIONS[key];
+        if (!data) {
+            document.getElementById('locMainGrid').style.display = 'none';
+            document.getElementById('notFoundState').style.display = 'block';
+            buildChips(null);
+            return;
+        }
+
+        // Hero
+        document.getElementById('heroLocName').textContent = key;
+        document.getElementById('heroTitle').innerHTML =
+            `Apple Repair — <span class="loc-accent" id="heroLocName">${key}</span>`;
+        document.getElementById('heroSubtitle').textContent =
+            `Same-day Apple device repair near ${key}, Bangalore.`;
+        document.title = `${key} | iApple Care Center Service Location`;
+
+        // Top bar
+        const topBarLabel = document.getElementById('locPageTopBarLabel');
+        if (topBarLabel) topBarLabel.textContent = key + ', Karnataka';
+
+        // Map
+        const mapSrc = `https://maps.google.com/maps?q=${data.mapQ}&output=embed&z=15`;
+        document.getElementById('locMapFrame').src = mapSrc;
+        document.getElementById('mapFooterLabel').textContent = `iApple Care Center — ${key}`;
+        document.getElementById('directionsLink').href =
+            `https://www.google.com/maps/search/?api=1&query=${data.dirQ}`;
+
+        // Info
+        document.getElementById('infoName').textContent = `iApple Care Center — ${key}`;
+        document.getElementById('infoArea').textContent = data.area;
+        document.getElementById('infoAddress').textContent = data.address;
+
+        setOpenStatus();
+        buildChips(key);
+    }
+
+    // ── Init ──────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu   = document.getElementById('navMenu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+
+        let locKey = getLocParam();
+
+        // Fallback: try localStorage
+        if (!locKey) {
+            try { locKey = localStorage.getItem('iapple_selected_location'); } catch(e) {}
+        }
+
+        if (locKey && LOCATIONS[locKey]) {
+            renderLocation(locKey);
+        } else {
+            // No param — show default (all chips, pick first)
+            renderLocation('Bannerghatta Road');
+            buildChips(null);
+        }
+    });
+    </script>
+</body>
+</html>
