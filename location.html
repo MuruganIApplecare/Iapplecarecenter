@@ -496,9 +496,40 @@
         <div class="container">
             <div class="nav-top-bar">
                 <div class="nav-contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt" style="color:var(--primary-color)"></i>
-                        <span id="locPageTopBarLabel">Bangalore, India</span>
+                    <div class="contact-item location-dropdown-wrapper" id="locationDropdownWrapper">
+                        <i class="fas fa-map-marker-alt location-pin-icon"></i>
+                        <span class="location-dropdown-trigger" id="locationDropdownTrigger">
+                            <span id="locationLabel">Bangalore, India</span>
+                            <i class="fas fa-chevron-down location-chevron"></i>
+                        </span>
+                        <div class="location-dropdown-menu" id="locationDropdownMenu" role="listbox" aria-label="Service Locations">
+                            <div class="location-dropdown-header">
+                                <i class="fas fa-location-dot"></i>
+                                <div class="location-header-text">
+                                    <span>Our Service Areas</span>
+                                    <small id="currentLocationBadge">Tap a location to select</small>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="location.html?loc=Begur" data-location="Begur"><i class="fas fa-circle-dot"></i> Begur</a></li>
+                                <li><a href="location.html?loc=Koramangala" data-location="Koramangala"><i class="fas fa-circle-dot"></i> Koramangala</a></li>
+                                <li><a href="location.html?loc=HSR+Layout" data-location="HSR Layout"><i class="fas fa-circle-dot"></i> HSR Layout</a></li>
+                                <li><a href="location.html?loc=Sarjapur" data-location="Sarjapur"><i class="fas fa-circle-dot"></i> Sarjapur</a></li>
+                                <li><a href="location.html?loc=Electronics+City" data-location="Electronics City"><i class="fas fa-circle-dot"></i> Electronics City</a></li>
+                                <li><a href="location.html?loc=Hosur" data-location="Hosur"><i class="fas fa-circle-dot"></i> Hosur</a></li>
+                                <li><a href="location.html?loc=Krishnagiri" data-location="Krishnagiri"><i class="fas fa-circle-dot"></i> Krishnagiri</a></li>
+                                <li><a href="location.html?loc=Bannerghatta+Road" data-location="Bannerghatta Road"><i class="fas fa-circle-dot"></i> Bannerghatta Road</a></li>
+                                <li><a href="location.html?loc=BTM+Stage+1" data-location="BTM Stage 1"><i class="fas fa-circle-dot"></i> BTM Stage 1</a></li>
+                                <li><a href="location.html?loc=BTM+Stage+2" data-location="BTM Stage 2"><i class="fas fa-circle-dot"></i> BTM Stage 2</a></li>
+                                <li><a href="location.html?loc=JP+Nagar" data-location="JP Nagar"><i class="fas fa-circle-dot"></i> JP Nagar</a></li>
+                                <li><a href="location.html?loc=Jayanagar" data-location="Jayanagar"><i class="fas fa-circle-dot"></i> Jayanagar</a></li>
+                                <li><a href="location.html?loc=Banashankari" data-location="Banashankari"><i class="fas fa-circle-dot"></i> Banashankari</a></li>
+                                <li><a href="location.html?loc=Whitefield" data-location="Whitefield"><i class="fas fa-circle-dot"></i> Whitefield</a></li>
+                                <li><a href="location.html?loc=MG+Road" data-location="MG Road"><i class="fas fa-circle-dot"></i> MG Road</a></li>
+                                <li><a href="location.html?loc=Hebbal" data-location="Hebbal"><i class="fas fa-circle-dot"></i> Hebbal</a></li>
+                                <li><a href="location.html?loc=Brigade+Road" data-location="Brigade Road"><i class="fas fa-circle-dot"></i> Brigade Road</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -547,7 +578,7 @@
                 </div>
             </div>
             <div class="loc-title-block">
-                <h1 id="heroTitle">Apple Repair — <span class="loc-accent" id="heroLocName">Bangalore</span></h1>
+                <h1 id="heroTitle">iApplecarecenter — <span class="loc-accent" id="heroLocName">Bangalore</span></h1>
                 <p id="heroSubtitle">Find your nearest iApple Care Center and get same-day Apple device repair.</p>
             </div>
         </div>
@@ -865,14 +896,10 @@
         // Hero
         document.getElementById('heroLocName').textContent = key;
         document.getElementById('heroTitle').innerHTML =
-            `Apple Repair — <span class="loc-accent" id="heroLocName">${key}</span>`;
+            `iApplecarecenter — <span class="loc-accent" id="heroLocName">${key}</span>`;
         document.getElementById('heroSubtitle').textContent =
             `Same-day Apple device repair near ${key}, Bangalore.`;
         document.title = `${key} | iApple Care Center Service Location`;
-
-        // Top bar
-        const topBarLabel = document.getElementById('locPageTopBarLabel');
-        if (topBarLabel) topBarLabel.textContent = key + ', Karnataka';
 
         // Map
         const mapSrc = `https://maps.google.com/maps?q=${data.mapQ}&output=embed&z=15`;
@@ -888,6 +915,20 @@
 
         setOpenStatus();
         buildChips(key);
+
+        // Sync dropdown label & badge to current location
+        const lbl   = document.getElementById('locationLabel');
+        const badge = document.getElementById('currentLocationBadge');
+        if (lbl)   { lbl.textContent = key; }
+        if (badge) { badge.textContent = `Serving: ${key}`; }
+
+        // Mark selected item in dropdown
+        const menu = document.getElementById('locationDropdownMenu');
+        if (menu) {
+            menu.querySelectorAll('a[data-location]').forEach(a => {
+                a.classList.toggle('location-selected', a.dataset.location === key);
+            });
+        }
     }
 
     // ── Init ──────────────────────────────────────────────────────
@@ -902,6 +943,38 @@
             });
         }
 
+        // ── Location Dropdown Toggle ───────────────────────────────
+        const wrapper = document.getElementById('locationDropdownWrapper');
+        const trigger = document.getElementById('locationDropdownTrigger');
+        const menu    = document.getElementById('locationDropdownMenu');
+
+        if (wrapper && trigger && menu) {
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                wrapper.classList.toggle('open');
+            });
+
+            // Each link navigates directly (href is already set in HTML)
+            menu.querySelectorAll('a[data-location]').forEach(link => {
+                link.addEventListener('click', () => {
+                    wrapper.classList.remove('open');
+                    try {
+                        localStorage.setItem('iapple_selected_location', link.dataset.location);
+                    } catch(e) {}
+                    // navigation happens via the href
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!wrapper.contains(e.target)) wrapper.classList.remove('open');
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') wrapper.classList.remove('open');
+            });
+        }
+
+        // ── Render Location ───────────────────────────────────────
         let locKey = getLocParam();
 
         // Fallback: try localStorage
@@ -912,11 +985,12 @@
         if (locKey && LOCATIONS[locKey]) {
             renderLocation(locKey);
         } else {
-            // No param — show default (all chips, pick first)
+            // No param — default to Bannerghatta Road
             renderLocation('Bannerghatta Road');
             buildChips(null);
         }
     });
     </script>
+
 </body>
 </html>
